@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zero Env | Runtime Validator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">zero_env</div>
+        <nav>
+          <a href="https://github.com/JasonDebnath001/zero-env" target="_blank"
+            >GitHub</a
+          >
+          <a
+            href="https://www.npmjs.com/package/@aritra_debnath/zero-env?activeTab=readme"
+            target="_blank"
+            >NPM</a
+          >
+        </nav>
+      </header>
+
+      <section class="hero">
+        <h1>Fail fast.<br />Ship faster.</h1>
+        <p class="subtitle">
+          The zero-setup environment validator for Node.js. <br />No schemas. No
+          boilerplate. Just safety.
+        </p>
+
+        <div class="install-box" onclick="copyCmd()">
+          <div class="toast" id="toast">Copied!</div>
+          <span class="cmd">> npm install @aritra_debnath/zero-env</span>
+          <span class="copy-icon">⎘</span>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="feat-item">
+          <h3>⚡ Zero Config</h3>
+          <p>
+            No <code>zod</code> schemas. No <code>env.ts</code> files. Just
+            import and go.
+          </p>
+        </div>
+        <div class="feat-item">
+          <h3>🔒 Runtime Protection</h3>
+          <p>
+            Accessing a missing variable crashes the app immediately with a
+            clear error.
+          </p>
+        </div>
+        <div class="feat-item">
+          <h3>🤖 Auto-Inference</h3>
+          <p>
+            Bundles <code>dotenv</code> and uses Proxies to detect usage
+            automatically.
+          </p>
+        </div>
+      </section>
+
+      <div class="grid">
+        <div class="card old-way">
+          <div class="card-title">The Old Way <span>❌</span></div>
+          <pre>
+<span class="code-comment">// 1. Install dotenv</span>
+<span class="code-comment">// 2. Install zod</span>
+<span class="code-comment">// 3. Create env.ts</span>
+
+const envSchema = z.object({
+  API_KEY: z.string(),
+  DB_URL: z.string().url(),
+});
+
+<span class="code-comment">// 4. Hope you didn't typo</span>
+export const env = envSchema.parse(process.env);</pre>
+        </div>
+
+        <div class="card zero-way">
+          <div class="card-title">
+            The Zero Way <span class="status-dot"></span>
+          </div>
+          <pre>
+<span class="code-comment">// 1. Just use it.</span>
+import <span class="code-key">env</span> from '@aritra_debnath/zero-env';
+
+<span class="code-comment">// Works perfectly</span>
+connect(env.DB_URL);
+
+<span class="code-comment">// Crashes instantly if missing</span>
+use(env.MISSING_KEY);
+<span class="code-comment">// Error: "MISSING_KEY" is not defined.</span></pre>
+        </div>
+      </div>
+
+      <footer>
+        <p>MIT License © 2025 Aritra Debnath</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
