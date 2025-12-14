@@ -1,0 +1,16 @@
+{
+  "name": "@aritra_debnath/zero-env",
+  "version": "2.0.1",
+  "description": "Runtime Config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Aritra Debnath",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
